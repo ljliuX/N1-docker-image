@@ -28,15 +28,13 @@ ifneq ($(HOST_OS),Linux)
 	-include fls.h
 endif
 
-HOST_CONFIGURE_VARS+= \
-	UUID_CFLAGS="-I$(STAGING_DIR_HOST)/include/e2fsprogs/uuid"
-
 HOST_CONFIGURE_ARGS+= \
-	--disable-tests \
+	--without-tests \
 	--without-crypto \
 	--without-xattr \
 	--without-zstd \
-	--without-lzo
+	--without-lzo \
+	--with-lzma
 
 HOST_MAKE_FLAGS += \
 	PROGRAMS="mkfs.jffs2 ubinize mkfs.ubifs"
